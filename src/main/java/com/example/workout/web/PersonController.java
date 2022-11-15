@@ -16,14 +16,23 @@ public class PersonController {
 	@Autowired
 	private PersonRepository personRepo;
 	
-	//Edit the personal info
+	//Add personal info
 	@RequestMapping(value = "/addperson")
 	public String addWorkout (Model model) {
 		model.addAttribute("person", new Person());
 		
 		return "editperson";
 	
-}	//Save the personal info
+}	
+@RequestMapping(value= "/deleteperson/{person_id}", method = RequestMethod.GET)
+	
+	public String deleteWorkout(@PathVariable("person_id") Long personId, Model model) {
+		
+		personRepo.deleteById(personId);
+		return "redirect:../workoutlist";
+		}
+	
+	//Save the personal info
 	@RequestMapping(value = "/saveperson", method = RequestMethod.POST)
 	public String savePerson (Person person) {
 		personRepo.save(person);

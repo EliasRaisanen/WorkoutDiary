@@ -36,6 +36,7 @@ public class WorkoutApplication {
 		
 		//Test data for the actual workouts that the user lists and edits
 		wrepository.save(new Workout("Salitreeni", "lähisali", "11.10", "60 min",drepository.findByText("Easy").get(0)));
+		wrepository.save(new Workout("Salitreeni", "lähisali", "12.10", "60 min",drepository.findByText("Easy").get(0)));
 		
 		// Personal data that varies everyday
 		prepository.save(new Person("-", "-", "-"));

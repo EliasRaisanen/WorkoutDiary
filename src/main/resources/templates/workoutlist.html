@@ -29,6 +29,7 @@
 			<td th:text="${person.sleep}"></td>
 			<td th:text="${person.weight}"></td>
 			<td th:text="${person.goals}"></td>
+			<td><a th:href="@{/deleteperson/{id}(id=${person.person_id})}">Delete</a></td>
 			
 			
 
