@@ -1,0 +1,35 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+<h1>Edit the details</h1> 
+<div>
+	
+  <form th:object="${person}" th:action="@{../saveperson}" action="#" method="post">
+  	<input type= "hidden" th:field="*{person_id}" id="id"/>
+	<label for="sleep">Sleep</label>
+	<input type="text" id="sleep" th:field="*{sleep}" />
+	<div style="clear: both; display: block; height: 15px;"></div>
+	<label for="weight">Weight</label>
+	<input type="text" id="weight" th:field="*{weight}" />
+	<div style="clear: both; display: block; height: 15px;"></div>
+	<label for="place">Long term goals</label>
+	<input type="text" th:field="*{goals}" />
+	<div style="clear: both; display: block; height: 15px;"></div>
+	
+	
+
+	
+	
+	
+	
+	<input type="submit" value="Save"></input>
+</form>
+
+</div>
+
+
+
+   </body>
+ </html>

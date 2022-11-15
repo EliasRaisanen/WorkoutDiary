@@ -1,0 +1,45 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+<h1>Edit the workout</h1> 
+<div>
+	
+  <form th:object="${workout}" th:action="@{../save}" action="#" method="post">
+  	<input type= "hidden" th:field="*{id}" class= "form-control"/>
+	<label for="description">Description</label>
+	<input type="text" id="desc" th:field="*{description}" />
+	<div style="clear: both; display: block; height: 15px;"></div>
+	<label for="date">Date</label>
+	<input type="text" id="date" th:field="*{date}" />
+	<div style="clear: both; display: block; height: 15px;"></div>
+	<label for="place">Place</label>
+	<input type="text" th:field="*{place}" />
+	<div style="clear: both; display: block; height: 15px;"></div>
+	<label for="length">Length</label>
+	<input type="text" th:field="*{length}" />
+	<div style="clear: both; display: block; height: 15px;"></div>
+	
+	
+	<div style="clear: both; display: block; height: 10px;"></div>
+	
+	<div> <label for="categorylist">Difficulty:</label></div>
+ <select id="difficultylist" th:field="*{difficulty}" class="form-control">
+     	<option th:each="difficulty: ${difficulties}" th:value="${difficulty.difficulty_id}" th:text="${difficulty.text}"></option>
+
+	
+	
+	
+	
+	<input type="submit" value="Save"></input>
+</form>
+
+
+
+</div>
+
+
+
+   </body>
+ </html>

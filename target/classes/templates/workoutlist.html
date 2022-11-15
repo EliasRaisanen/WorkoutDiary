@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<title>Workout diary</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+	<h1>Workout diary</h1>
+
+
+	<div class="col-md-4" style="padding: 20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger" />
+		</form>
+	</div>
+
+	<table>
+		<tr>
+			<th>Sleep</th>
+			<th>Weight</th>
+			<th>Long term goals</th>
+		</tr>
+
+
+		<tr th:each="person : ${persons}">
+			<td th:text="${person.sleep}"></td>
+			<td th:text="${person.weight}"></td>
+			<td th:text="${person.goals}"></td>
+			
+			
+
+
+		</tr>
+
+
+	</table>
+	<a href="/addperson"> Add personal info</a>
+
+	<h2>Workouts</h2>
+
+
+
+
+
+	<table>
+
+		<tr>
+			<th>Description</th>
+			<th>Date</th>
+			<th>Place</th>
+			<th>Length</th>
+			<th>Difficulty</th>
+
+		</tr>
+		<tr th:each="workout : ${workouts}">
+			<td th:text="${workout.description}"></td>
+			<td th:text="${workout.place}"></td>
+			<td th:text="${workout.date}"></td>
+			<td th:text="${workout.length}"></td>
+			<td th:text="${workout.difficulty.text}"></td>
+			<td><a th:href="@{/delete/{id}(id=${workout.id})}">Delete</a></td>
+			<td><a th:href="@{/edit/{id}(id=${workout.id})}">Edit</a></td>
+
+
+		</tr>
+
+
+
+
+
+	</table>
+	<a href="/add"> Add a workout</a>
+
+</body>
+</html>
